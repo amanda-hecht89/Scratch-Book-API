@@ -9,7 +9,7 @@ describe('book routes', () => {
   });
 
 
-  it('/books should return a list of books', async() => {
+  it.skip('/books should return a list of books', async() => {
     const res = await request(app).get('/books');
     expect(res.body.length).toEqual(8);
      

@@ -1,23 +1,21 @@
 -- Use this file to define your SQL tables
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP table if exists books;
-DROP table if exists authors;
-DROP table if exists actors_movies;
+
 
 CREATE table books (
-    id BIGINT generated always as identity primary key
+    id BIGINT generated always as identity primary key,
     name VARCHAR NOT NULL,
-    released INT,
-    authors VARCHAR NOT NULL,
+    released INT
 
 );
 
-INSERT into books (name, releasedm) values
-('Phantoms', 2021, 'Dean Koontz'),
-('IT', 2011, 'Steven King'),
-('Shattered', 1985, 'Dean Koontz'),
-('Hideaway', 2005, 'Dean Koontz'),
-('Geralds Game', 2016, 'Steven King'),
-('Carrie', 2008, 'Steven King'),
-('Running Man', 2007, 'Steven King'),
-('Pet Semaraty', 2002, 'Steven King'),
+INSERT into books (name, released) values
+('IT', 2011),
+('Phantoms', 2021),
+('Shattered', 1985),
+('Hideaway', 2005),
+('Geralds Game', 2016),
+('Carrie', 2008),
+('Running Man', 2007),
+('Pet Semaraty', 2002);

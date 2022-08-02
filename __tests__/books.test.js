@@ -14,6 +14,12 @@ describe('book routes', () => {
     expect(res.body.length).toEqual(8);
      
   });
+  it('books/:id should return data from single book', async () => {
+    const res = await request(app).get('/books/1');
+    expect(res.body).toHaveProperty('id', '1');
+    expect(res.body).toHaveProperty('title', 'IT');
+    expect(res.body).toHaveProperty('released', 2011);
+  });
 });
 afterAll(() => {
   pool.end();

@@ -1,23 +1,25 @@
 -- Use this file to define your SQL tables
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP table if exists books;
-DROP table if exists books_authors
+DROP table if exists book_author;
+DROP table if exists authors
 
 
 CREATE table books (
     id BIGINT generated always as identity primary key,
     name VARCHAR NOT NULL,
     released INT
-
 );
+
 
 CREATE table book_author (
     id BIGINT generated always as identity primary key,
     book_id int,
     author_id int,
     foreign key {book_id} references books(id),
-    foreign key {author_id} references author(id),
+    foreign key {author_id} references author(id)
 )
+
 
 CREATE table authors (
     id BIGINT generated always as identity primary key,
@@ -25,6 +27,7 @@ CREATE table authors (
     dob int,
     hometown VARCHAR
 )
+
 
 INSERT into books (name, released) values
 ('IT', 2011),
@@ -36,6 +39,7 @@ INSERT into books (name, released) values
 ('Running Man', 2007),
 ('Pet Semaraty', 2002);
 
+
 INSERT into book_author (book_id, author_id) values 
 ('1', '1')
 ('2', '2')
@@ -45,6 +49,7 @@ INSERT into book_author (book_id, author_id) values
 ('6', '1')
 ('7', '1')
 ('8', '1')
+
 
 INSERT into authors (name, dob, hometown) values
 ('Stephen King', 1947, 'Portland MN')

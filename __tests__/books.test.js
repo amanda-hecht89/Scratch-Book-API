@@ -9,12 +9,12 @@ describe('book routes', () => {
   });
 
 
-  it.skip('/books should return a list of books', async() => {
+  it('/books should return a list of books', async() => {
     const res = await request(app).get('/books');
     expect(res.body.length).toEqual(8);
      
   });
-  it('books/:id should return data from single book', async () => {
+  it.skip('books/:id should return data from single book', async () => {
     const res = await request(app).get('/books/1');
     expect(res.body).toHaveProperty('id', '1');
     expect(res.body).toHaveProperty('title', 'IT');

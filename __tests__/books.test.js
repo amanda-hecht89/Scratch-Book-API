@@ -14,11 +14,16 @@ describe('book routes', () => {
     expect(res.body.length).toEqual(8);
      
   });
-  it.skip('books/:id should return data from single book', async () => {
+  it('books/:id should return data from single book', async () => {
     const res = await request(app).get('/books/1');
+    console.log(res.body, 'yoooooooo');
     expect(res.body).toHaveProperty('id', '1');
     expect(res.body).toHaveProperty('title', 'IT');
     expect(res.body).toHaveProperty('released', 2011);
+    expect(res.body.authors[0]).toHaveProperty('dob');
+    expect(res.body.authors[0]).toHaveProperty('hometown');
+    expect(res.body.authors[0]).toHaveProperty('id');
+    expect(res.body.authors[0]).toHaveProperty('name');
   });
 });
 afterAll(() => {

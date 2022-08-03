@@ -9,24 +9,19 @@ describe('book routes', () => {
   });
 
 
-  it.skip('/books should return a list of books', async() => {
-    const res = await request(app).get('/books');
+  it('/authors should return a list of authors', async() => {
+    const res = await request(app).get('/authors');
     expect(res.body.length).toEqual(8);
      
   });
-  it.skip('books/:id should return data from single book', async () => {
-    const res = await request(app).get('/books/1');
+  it('authors/:id should return data from single author', async () => {
+    const res = await request(app).get('/author/1');
     expect(res.body).toHaveProperty('id', '1');
-    expect(res.body).toHaveProperty('title', 'IT');
-    expect(res.body).toHaveProperty('released', 2011);
+    expect(res.body).toHaveProperty('name', 'Stephen King');
     expect(res.body.authors[0]).toHaveProperty('dob');
     expect(res.body.authors[0]).toHaveProperty('hometown');
-    expect(res.body.authors[0]).toHaveProperty('id');
-    expect(res.body.authors[0]).toHaveProperty('name');
   });
 });
 afterAll(() => {
   pool.end();
 });
-
-
